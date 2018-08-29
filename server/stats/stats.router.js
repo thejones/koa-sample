@@ -8,12 +8,12 @@ const router = new Router({
 // If this was more complex I would handle in a seperate controller/handlers file.
 router.get("/", async ctx => {
   const lastMessage = getLastMessage();
-  const requestCount = getCurrentRequestCount();
+  const numberOfCalls = getCurrentRequestCount();
 
   // Handle errors here. I am not doing that right now in the interest of time
   ctx.status = 200;
   ctx.body = {
-    requestCount,
+    numberOfCalls,
     lastMessage
   };
 });

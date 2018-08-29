@@ -11,7 +11,7 @@ describe("get: stats/", () => {
     const response = await request(server).get("/stats");
     expect(response.status).toEqual(200);
     expect(response.type).toEqual("application/json");
-    expect(response.body.requestCount).toEqual(1);
+    expect(response.body.numberOfCalls).toEqual(1);
 
     // Mock this as a factory in future
     // I am just making the actual call here to be lazy
@@ -30,13 +30,13 @@ describe("get: stats/", () => {
 
   test("Counter should count", async () => {
     const response = await request(server).get("/stats");
-    expect(response.body.requestCount).toEqual(3);
+    expect(response.body.numberOfCalls).toEqual(3);
 
     [0, 1, 2].forEach(async idx => {
       await request(server).get("/stats");
     });
 
     const afterRequests = await request(server).get("/stats");
-    expect(afterRequests.body.requestCount).toEqual(7);
+    expect(afterRequests.body.numberOfCalls).toEqual(7);
   });
 });
