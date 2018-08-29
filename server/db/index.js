@@ -45,7 +45,6 @@ const writeMessage = message => {
     const _message = Object.assign({}, message);
     _message["created_at"] = Date.now();
     _messages.unshift(_message);
-    console.log(message);
     resolve(message); // Hide my created at field
   });
 };
@@ -54,7 +53,6 @@ const getLastMessage = () => {
   if (_messages.length) {
     const currentMessage = _messages[0];
     delete currentMessage.created_at;
-    console.log(_messages[0]);
     return currentMessage;
   } else {
     return [];
