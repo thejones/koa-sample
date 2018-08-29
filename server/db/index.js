@@ -23,7 +23,6 @@ const _dirtyThirty = function _dirtyThirty() {
     messages: allMessages
   };
 
-  console.log(JSON.stringify(data));
   // this part was not clear. I will overwrite the file not append...
   fs.writeFile(
     path.join(__dirname, "store.json"),
