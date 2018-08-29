@@ -1,0 +1,34 @@
+{
+  "name": "koa_sample_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".#server.js",
+  "dependencies": {
+    "joi": "^13.6.0",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^8.0.0-alpha.1",
+    "lodash.orderby": "^4.6.0"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon server/",
+    "start": "node server/"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
