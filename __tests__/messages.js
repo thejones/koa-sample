@@ -1,20 +1,16 @@
-const server = require("../server/index");
+const app = require("../server/app");
 // require supertest
 const request = require("supertest");
-// close the server after each test
-afterEach(() => {
-  server.close();
-});
 
 describe("post: messages/", () => {
   test("should validate message", async () => {
-    const response = await request(server).post("/messages");
+    const response = await request(app.callback()).post("/messages");
     expect(response.status).toEqual(400);
     expect(response.body.name).toEqual("ValidationError");
   });
 
   test("should post message", async () => {
-    const response = await request(server)
+    const response = await request(app.callback())
       .post("/messages")
       .send({
         from: "Mel Gibson",

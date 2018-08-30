@@ -1,13 +1,10 @@
-const server = require("../server/index");
+const app = require("../server/app");
 // require supertest
 const request = require("supertest");
-// close the server after each test
-afterEach(() => {
-  server.close();
-});
+
 describe("routes: index smoketest", () => {
   test("should respond with 200", async () => {
-    const response = await request(server).get("/");
+    const response = await request(app.callback()).get("/");
     expect(response.status).toEqual(200);
   });
 });

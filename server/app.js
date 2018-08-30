@@ -35,6 +35,4 @@ app.use(router.routes());
 app.use(messagesRouter.routes());
 app.use(statsRouter.routes());
 
-// Not 100% on Koa error handling.
-
 module.exports = app;
